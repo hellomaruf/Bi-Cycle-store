@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { BiCycleInterface } from "./bicycle.interface";
 
 const bicycleSchema = new Schema<BiCycleInterface>({
@@ -14,3 +14,6 @@ const bicycleSchema = new Schema<BiCycleInterface>({
   quantity: { type: Number, required: true },
   inStock: { type: Boolean, required: true },
 });
+
+//  Create a Model-------------->
+const Bicycle = model<BiCycleInterface>('Bicycle', bicycleSchema);
