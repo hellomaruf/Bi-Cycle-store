@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { BicycleService } from "./bicycle.service";
 
-const createStudent = async (req: Request, res: Response) => {
+
+const createBicycle = async (req: Request, res: Response) => {
   try {
     const bicycle = req.body;
     const result = await BicycleService.createBicycleProductIntoDB(bicycle);
@@ -16,5 +17,5 @@ const createStudent = async (req: Request, res: Response) => {
 };
 
 export const  BicycleControllers = {
-    createStudent
+    createBicycle
 }
