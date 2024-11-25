@@ -10,4 +10,6 @@ router.get("/products/:productId", BicycleControllers.getSpacificBicycle);
 
 router.put("/products/:productId", BicycleControllers.updateABicycle);
 
+router.delete("/products/:productId", BicycleControllers.deleteABicycle);
+
 export const BicycleRoutes = router;

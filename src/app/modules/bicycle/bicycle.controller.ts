@@ -64,10 +64,28 @@ const updateABicycle = async (req: Request, res: Response) => {
     });
   }
 };
+const deleteABicycle = async (req: Request, res: Response) => {
+  const { productId } = req.params;
+  try {
+    const result = await BicycleService.deleteBicycleFromDB(productId);
+    res.status(200).json({
+      message: "Bicycle deleted successfully",
+      status: true,
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Bicycle deleted failed",
+      error: err,
+    });
+  }
+};
 
 export const BicycleControllers = {
   createBicycle,
   getAllBicycle,
   getSpacificBicycle,
-  updateABicycle,
+    updateABicycle,
+    deleteABicycle
 };
