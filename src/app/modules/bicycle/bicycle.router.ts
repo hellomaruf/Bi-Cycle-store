@@ -4,4 +4,6 @@ const router = express.Router();
 
 router.post("/products", BicycleControllers.createBicycle);
 
+router.get("/products", BicycleControllers.getAllBicycle);
+
 export const BicycleRoutes = router;

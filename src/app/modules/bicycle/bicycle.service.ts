@@ -6,6 +6,14 @@ const createBicycleProductIntoDB = async (bicycle: BiCycleInterface) => {
   return result;
 };
 
+const getAllBicycleFromDB = async () => {
+  const result = await BicycleModel.find();
+  return result;
+};
+
+
+
 export const BicycleService = {
   createBicycleProductIntoDB,
+  getAllBicycleFromDB,
 };

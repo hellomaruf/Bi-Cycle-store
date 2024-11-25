@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { BicycleService } from "./bicycle.service";
 
-
 const createBicycle = async (req: Request, res: Response) => {
   try {
     const bicycle = req.body;
@@ -16,6 +15,20 @@ const createBicycle = async (req: Request, res: Response) => {
   }
 };
 
-export const  BicycleControllers = {
-    createBicycle
-}
+const getAllBicycle = async (req: Request, res: Response) => {
+  try {
+    const result = await BicycleService.getAllBicycleFromDB();
+    res.status(200).json({
+      message: "Bicycles retrieved successfully",
+      status: true,
+      data: result,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const BicycleControllers = {
+  createBicycle,
+  getAllBicycle,
+};
