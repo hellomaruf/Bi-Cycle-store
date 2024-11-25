@@ -1,6 +1,6 @@
 type BicycleType = "Mountain" | "Road" | "Hybrid" | "BMX" | "Electric";
 
-export type BiCycle = {
+export type BiCycleInterface = {
   name: string;
   brand: string;
   price: number;
