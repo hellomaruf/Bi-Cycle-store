@@ -17,7 +17,25 @@ const createBicycle = async (req: Request, res: Response) => {
 
 const getAllBicycle = async (req: Request, res: Response) => {
   try {
-    const result = await BicycleService.getAllBicycleFromDB();
+    const { searchTerm } = req.query;
+    const result = await BicycleService.getAllBicycleFromDB(
+      searchTerm as string
+    );
+    res.status(200).json({
+      message: "Bicycles retrieved successfully",
+      status: true,
+      data: result,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getSpacificBicycle = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params;
+    const result = await BicycleService.specificBicycleFromDB(productId);
+
     res.status(200).json({
       message: "Bicycles retrieved successfully",
       status: true,
@@ -31,4 +49,5 @@ const getAllBicycle = async (req: Request, res: Response) => {
 export const BicycleControllers = {
   createBicycle,
   getAllBicycle,
+  getSpacificBicycle,
 };

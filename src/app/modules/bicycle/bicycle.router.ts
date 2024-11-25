@@ -6,4 +6,6 @@ router.post("/products", BicycleControllers.createBicycle);
 
 router.get("/products", BicycleControllers.getAllBicycle);
 
+router.get("/products/:productId", BicycleControllers.getSpacificBicycle);
+
 export const BicycleRoutes = router;
