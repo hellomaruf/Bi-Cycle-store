@@ -16,4 +16,4 @@ const bicycleSchema = new Schema<BiCycleInterface>({
 });
 
 //  Create a Model-------------->
-const Bicycle = model<BiCycleInterface>('Bicycle', bicycleSchema);
+export const BicycleModel = model<BiCycleInterface>('Bicycle', bicycleSchema);
