@@ -46,8 +46,28 @@ const getSpacificBicycle = async (req: Request, res: Response) => {
   }
 };
 
+const updateABicycle = async (req: Request, res: Response) => {
+  const { productId } = req.params;
+  const updateData = req.body;
+  try {
+    const result = await BicycleService.updateBicycleFromDB(productId, updateData);
+    res.status(200).json({
+      message: "Bicycle updated successfully",
+      status: true,
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Bicycle updated failed",
+      error: err,
+    });
+  }
+};
+
 export const BicycleControllers = {
   createBicycle,
   getAllBicycle,
   getSpacificBicycle,
+  updateABicycle,
 };

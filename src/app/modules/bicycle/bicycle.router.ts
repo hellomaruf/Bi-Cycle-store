@@ -8,4 +8,6 @@ router.get("/products", BicycleControllers.getAllBicycle);
 
 router.get("/products/:productId", BicycleControllers.getSpacificBicycle);
 
+router.put("/products/:productId", BicycleControllers.updateABicycle);
+
 export const BicycleRoutes = router;

@@ -1,4 +1,4 @@
-import { BiCycleInterface } from "./bicycle.interface";
+import { BiCycleInterface, UpdateData } from "./bicycle.interface";
 import { BicycleModel } from "./bicycle.model";
 import { ObjectId } from "mongodb";
 
@@ -28,8 +28,18 @@ const specificBicycleFromDB = async (id: string) => {
   return result;
 };
 
+const updateBicycleFromDB = async (id: string, updateData: UpdateData) => {
+  const result = await BicycleModel.findOneAndUpdate(
+    { _id: new ObjectId(id) },
+    { $set: updateData },
+    { new: true }
+  );
+  return result;
+};
+
 export const BicycleService = {
   createBicycleProductIntoDB,
   getAllBicycleFromDB,
   specificBicycleFromDB,
+  updateBicycleFromDB,
 };
